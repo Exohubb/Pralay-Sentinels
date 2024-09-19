@@ -1,0 +1,130 @@
+/* Reset default margin and padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+    font-family: Arial, sans-serif;
+    line-height: 1.2;
+    color: #333;
+    background-color: #EDE8F5;
+
+}
+
+/* Wrapper for the main content and footer */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+#gloff{
+    background-color: #EDE8F5;
+    color: #4f4d52;
+    text-align: center;
+    padding: 1rem;
+}
+header {
+    background-color: #EDE8F5;
+    color: rgb(72, 106, 132);
+    padding: 15px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .logo {
+    margin-left: 20px;
+}
+
+nav ul {
+    display: flex;
+    justify-content: flex-end;
+    list-style: none;
+    margin-right: 100px;
+}
+
+nav ul li {
+    margin: 0 40px;
+}
+
+nav ul li a {
+    color: rgb(65, 64, 94);
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    position: relative;
+    padding-bottom: 5px;
+    overflow: hidden;
+}
+
+/* Fade-in underline effect */
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0.1em; /* Thickness of the underline */
+    background-color: black; /* Change to any color */
+    opacity: 0; /* Initially invisible */
+    transform: translateY(0.5em); /* Start below the text */
+    transition: opacity 300ms ease, transform 300ms ease; /* Smooth transition */
+}
+
+/* On hover, the underline fades in and moves up slightly */
+nav ul li a:hover::after,
+nav ul li a:focus::after {
+    opacity: 1; /* Fade in */
+    transform: translateY(0); /* Move underline to original position */
+}
+
+main {
+    flex: 1;
+    padding: 1rem;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.main-image {
+    width: 100%;
+    height: 500px;
+    margin-bottom: 1rem;
+}
+
+section {
+    background-color: #fff;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 8px;
+}
+
+h2 {
+    color: #007BFF;
+    margin-bottom: 0.5rem;
+}
+
+ul {
+    list-style-type: disc;
+    padding-left: 2rem;
+}
+
+li {
+    margin-bottom: 0.5rem;
+}
+
+footer {
+    text-align: center;
+    padding: 1rem;
+    background-color: #8697C4;
+    color: #fff;
+    width: 100%;
+}
+
+#introduction{
+    width : 100%;
+}

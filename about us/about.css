@@ -1,0 +1,147 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #EDE8F5;
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+  
+#gloff {
+    text-align: center;
+    /* padding: 20px 0; */
+    width: 800px;
+    margin-left: 350px;
+}
+
+  header {
+    background-color: #EDE8F5;
+    color: rgb(72, 106, 132);
+    padding: 15px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .logo {
+    margin-left: 20px;
+}
+
+nav ul {
+    display: flex;
+    justify-content: flex-end;
+    list-style: none;
+    margin-right: 100px;
+}
+
+nav ul li {
+    margin: 0 40px;
+}
+
+nav ul li a {
+    color: rgb(65, 64, 94);
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    position: relative;
+    padding-bottom: 5px;
+    overflow: hidden;
+}
+
+/* Fade-in underline effect */
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0.1em; /* Thickness of the underline */
+    background-color: black; /* Change to any color */
+    opacity: 0; /* Initially invisible */
+    transform: translateY(0.5em); /* Start below the text */
+    transition: opacity 300ms ease, transform 300ms ease; /* Smooth transition */
+}
+
+/* On hover, the underline fades in and moves up slightly */
+nav ul li a:hover::after,
+nav ul li a:focus::after {
+    opacity: 1; /* Fade in */
+    transform: translateY(0); /* Move underline to original position */
+}
+
+#gloff {
+    color: #4CAF50;
+  }
+  
+  #team, #mentor {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .member-card {
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    width: 40%;
+    margin: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    transition: ease-out 0.2s;
+
+  }
+  .member-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.4);
+    transition: ease-in-out 0.3s;
+  }
+  
+  .profile-pic {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-right: 20px;
+  }
+  
+  .info {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  h2 {
+    margin: 0;
+    color: #4CAF50;
+  }
+  
+  p {
+    margin: 5px 0;
+  }
+  
+  .social {
+    margin-top: 10px;
+  }
+  
+  .social a {
+    text-decoration: none;
+    margin-right: 10px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    background-color: #4CAF50;
+    color: white;
+  }
+  
+  .social a.linkedin {
+    background-color: #0077B5;
+  }
+  
+  .social a.twitter {
+    background-color: #1DA1F2;
+  }
+  
