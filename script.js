@@ -2,6 +2,10 @@ document.addEventListener("DOMContentLoaded", function() {
     let dataLines = [];
     let currentIndex = 0;
     
+    // Define thresholds and weights for flood probability calculation
+    const thresholds = [10, 8, 5, 2.5, 200];  // Thresholds for [Temperature, Water Level, Seismic, Inclinometer, Piezometer]
+    const weights = [0.1, 0.4, 0.2, 0.2, 0.1];    // Weights for each sensor
+
     function fetchData() {
         fetch('rnnn.txt') // Adjust the path if necessary
             .then(response => {
@@ -17,24 +21,43 @@ document.addEventListener("DOMContentLoaded", function() {
             .catch(error => console.error('Error fetching data:', error));
     }
 
+    function calculateFloodProbability(sensorData) {
+        let score = 0;
+        
+        // Calculate the normalized score based on thresholds and weights
+        for (let i = 0; i < sensorData.length; i++) {
+            let normalizedValue = sensorData[i] / thresholds[i];  // Normalize the sensor value based on the threshold
+            score += normalizedValue * weights[i];  // Add the weighted value to the total score
+        }
+
+        // Calculate probability and cap it at 1 (100%)
+        let probability = Math.min(score / weights.reduce((a, b) => a + b, 0), 1);  
+        return probability;
+    }
+
     function updateFields() {
         if (dataLines.length === 0) return;
         
         // Determine the index of the next data chunk
         const index = currentIndex * 5;
         if (index + 5 <= dataLines.length) {
-            const currentData = dataLines.slice(index, index + 5);
+            // Extract the current sensor data
+            const currentData = dataLines.slice(index, index + 5).map(Number);  // Convert to numbers
 
-            // Update fields with current data
+            // Calculate the flood probability
+            const floodProbability = calculateFloodProbability(currentData);
+
+            // Update fields with current data and flood probability
             document.getElementById('sensor-data').innerHTML = `
                 <strong>Temperature:</strong> ${currentData[0] || 'No data'} °C<br><br>
                 <strong>Water Level:</strong> ${currentData[1] || 'No data'} m<br><br>
-                <strong>Seismic:</strong> ${currentData[2] || 'No data'} <br><br>
-                <strong>Inclinometer:</strong> ${currentData[3] || 'No data'} deg<br><br>
+                <strong>Seismic:</strong> ${currentData[2] || 'No data'}<br><br>
+                <strong>Inclinometer:</strong> ${currentData[3] || 'No data'} m<br><br>
                 <strong>Piezometer:</strong> ${currentData[4] || 'No data'} pa<br><br>
+                <strong>Current Flood Probability:</strong> ${(floodProbability * 100).toFixed(2)}%<br>
             `;
             
-            // Move to the next chunk
+            // Move to the next chunk of data
             currentIndex = (currentIndex + 1) % Math.ceil(dataLines.length / 5);
         } else {
             console.log('Not enough data available.');
@@ -42,7 +65,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     // Fetch and update data every 2 seconds
-    setInterval(fetchData, 8000);
+    setInterval(fetchData, 5000);
 
     // Initial fetch
     fetchData();
