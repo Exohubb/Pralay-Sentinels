@@ -52,8 +52,8 @@ document.addEventListener("DOMContentLoaded", function() {
                 <strong>Temperature:</strong> ${currentData[0] || 'No data'} °C<br><br>
                 <strong>Water Level:</strong> ${currentData[1] || 'No data'} m<br><br>
                 <strong>Seismic:</strong> ${currentData[2] || 'No data'}<br><br>
-                <strong>Inclinometer:</strong> ${currentData[3] || 'No data'} m<br><br>
-                <strong>Piezometer:</strong> ${currentData[4] || 'No data'} pa<br><br>
+                <strong>Inclinometer:</strong> ${currentData[3] || 'No data'} deg<br><br>
+                <strong>Piezometer:</strong> ${currentData[4] || 'No data'} kPa<br><br>
                 <strong>Current Flood Probability:</strong> ${(floodProbability * 100).toFixed(2)}%<br>
             `;
             
