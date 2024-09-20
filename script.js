@@ -32,7 +32,6 @@ document.addEventListener("DOMContentLoaded", function() {
                 <strong>Seismic:</strong> ${currentData[2] || 'No data'} <br><br>
                 <strong>Inclinometer:</strong> ${currentData[3] || 'No data'} deg<br><br>
                 <strong>Piezometer:</strong> ${currentData[4] || 'No data'} pa<br><br>
-                // <strong>Flood Probability:</strong> ${currentData[5] || 'No data'} %
             `;
             
             // Move to the next chunk
