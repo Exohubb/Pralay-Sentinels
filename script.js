@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function() {
     let currentIndex = 0;
     
     function fetchData() {
-        fetch('rnn.txt') // Adjust the path if necessary
+        fetch('rnnn.txt') // Adjust the path if necessary
             .then(response => {
                 if (!response.ok) {
                     throw new Error('Network response was not ok ' + response.statusText);
