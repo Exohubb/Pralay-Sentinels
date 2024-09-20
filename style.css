@@ -123,14 +123,3 @@ footer {
     position: relative;
     bottom: 0;
 }
-
-
-
-.flood-probability {
-    background-color: #ffcccb; /* Light red background */
-    border: 2px solid #ff0000; /* Red border */
-    padding: 10px;
-    border-radius: 8px;
-    font-weight: bold;
-    color: #ff0000; /* Red text color */
-}
