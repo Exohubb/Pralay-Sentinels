@@ -65,7 +65,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     // Fetch and update data every 2 seconds
-    setInterval(fetchData, 5000);
+    setInterval(fetchData, 2000);
 
     // Initial fetch
     fetchData();
